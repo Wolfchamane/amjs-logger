@@ -1,0 +1,47 @@
+{
+    "name": "@amjs/logger",
+    "version": "0.1.0",
+    "description": "Handles log/trace/debug information",
+    "keywords": [
+        "nodejs",
+        "logs"
+    ],
+    "author": "Arturo Martínez <arturo.mart.diaz@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:Wolfchamane/amjs-logger.git"
+    },
+    "license": "MIT",
+    "main": "index.js",
+    "dependencies": {
+        "@amjs/templater": "^0.1.3",
+        "chalk": "^2.4.2"
+    },
+    "devDependencies": {
+        "@amjs/create-readme": "^0.1.0",
+        "@babel/core": "^7.4.5",
+        "@babel/preset-env": "^7.4.5",
+        "@babel/register": "^7.4.4",
+        "@istanbuljs/nyc-config-babel": "^2.1.1",
+        "babel-eslint": "^10.0.2",
+        "babel-plugin-istanbul": "^5.1.4",
+        "eslint": "^6.0.1",
+        "lint-staged": "^9.2.0",
+        "nyc": "^14.1.1",
+        "prettier": "^1.18.2"
+    },
+    "lint-staged": {
+        "*.js": [
+            "prettier --config .prettierrc --write",
+            "eslint --fix --config .eslintrc.yml --ext .js",
+            "git add"
+        ]
+    },
+    "scripts": {
+        "format": "prettier --config .prettierrc --write 'src/**/*.js'",
+        "lint": "eslint --fix --config .eslintrc.yml --ext .js src tests",
+        "precommit": "lint-staged",
+        "test": "NODE_ENV=testing nyc node tests/index.js",
+        "doc": "node node_modules/@amjs/create-readme --d docs"
+    }
+}

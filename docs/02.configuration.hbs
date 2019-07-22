@@ -1,0 +1,17 @@
+## Configuration
+
+__@amjs/logger__ accepts following configuration options:
+
+| Option | Description | Type | Default |
+|:---:|:--- |:---:|:--- |
+| date       | Log traces fixed date | String | Instance creation date, as ISO string |
+| destFolder | Destination folder to write logFile | String | _".tmp"_ |
+| logFile    | File to write | String | _".tmp/{date}.log"_ |
+| name       | App that is running the logger | String | _"@amjs/logger"_ |
+| template   | Log record template | String | _"\{{date}} \{{name}} [\{{level}}] \{{message}}"_ |
+| trace      | Whether to log messages into console or not | Boolean | false |
+| stack      | Whether to stack messages or not | Boolean | false |
+
+By default, all paths are relative to _@amsj/logger_ installation path.
+
+_date_ configuration property __is ony used__ for creating log file, records will have their own timestamp.

@@ -1,0 +1,27 @@
+## Usage
+
+#### Default use
+
+```javascript
+const AmjsLogger = require('@amjs/logger');
+const logger = new AmjsLogger();
+logger.log('My log message is \{{info}}', { info : 'logged!' }); //*
+```
+
+_*: Available methods are: 'log', 'error', 'debug', 'warn' and 'info'_
+
+#### Stacked messages:
+
+In this way of behaviour, messages can be stacked into a pile and through method __dump__ will be written into log file.
+
+```javascript
+const AmjsLogger = require('@amjs/logger');
+const logger = new AmjsLogger({ stack : true });
+logger.log('My log message');
+logger.error('My error message');
+logger.debug('My debug message');
+logger.warn('My warning message');
+logger.info('My info message');
+logger.dump();
+```
+
